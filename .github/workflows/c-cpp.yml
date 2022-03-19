@@ -1,19 +1,18 @@
-name: C/C++ CI
+name: CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: setup mipsel g++
+      run: apt install -y g++-10-mipsel-linux-gnu
     - name: make all
-      run: make all
-    - name: make install
-      run: make install
+      run: make CXX=/usr/bin/mipsel-linux-gnu-g++-10 all
+    - uses: actions/upload-artifact@v3
+      with:
+        name: upload
+        path: ndppd

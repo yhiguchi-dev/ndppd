@@ -14,5 +14,4 @@ jobs:
       run: make CXX=/usr/bin/mipsel-linux-gnu-g++-10 all
     - uses: actions/upload-artifact@v3
       with:
-        name: upload
-        path: ndppd
+        path: build

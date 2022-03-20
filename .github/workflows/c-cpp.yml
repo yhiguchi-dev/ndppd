@@ -9,10 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: setup mipsel g++
-      run: ls -ltr /usr/bin/
-    # - name: make all
-    #   run: make CXX=/usr/bin/mipsel-linux-gnu-g++-10 all
-    # - uses: actions/upload-artifact@v3
-    #   with:
-    #     name: upload
-    #     path: ndppd
+      run: sudo apt-get install -y g++-10-mipsel-linux-gnu
+    - name: make all
+      run: make CXX=/usr/bin/mipsel-linux-gnu-g++-10 all
+    - uses: actions/upload-artifact@v3
+      with:
+        name: upload
+        path: ndppd

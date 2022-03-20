@@ -12,6 +12,10 @@ jobs:
       run: sudo apt install -y g++-10-mipsel-linux-gnu
     - name: make all
       run: make CXX=/usr/bin/mipsel-linux-gnu-g++-10 all
+    - name: generate config
+      run: envsubst < ndppd.conf.template > ndppd.conf
+      env:
+        TARGET_ADDRESS: ${{ secrets.TARGET_ADDRESS }}
     - name: build
       run: ./scripts/build.sh
     - uses: actions/upload-artifact@v3

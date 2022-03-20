@@ -1,0 +1,14 @@
+proxy eth0 {
+   router no
+   autowire yes
+   rule ${TARGET_ADDRESS} {
+      iface switch0
+   }
+}
+proxy switch0 {
+   router yes
+   autowire yes
+   rule ${TARGET_ADDRESS} {
+      auto
+   }
+}

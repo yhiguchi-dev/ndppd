@@ -2,15 +2,15 @@
 
 set -eux
 
-cd $(dirname $0)/../
+cd $(dirname $0)
 
-SBINDIR=/usr/sbin
-INITDDIR=/etc/init.d
+SBIN_DIR=/usr/sbin
+SYSTEMD_DIR=/etc/systemd/system
 
-mkdir -p ${SBINDIR} ${INITDDIR}
-cp ndppd ${SBINDIR}
-chmod +x ${SBINDIR}/ndppd
-chown root:root ${SBINDIR}/ndppd
-cp scripts/ndppd ${INITDDIR}
-chmod +x ${INITDDIR}/ndppd
-chown root:root ${INITDDIR}/ndppd
+mkdir -p ${SBIN_DIR} ${SYSTEMD_DIR}
+cp ndppd ${SBIN_DIR}
+chmod 755 ${SBIN_DIR}/ndppd
+chown root:root ${SBIN_DIR}/ndppd
+cp ndppd.service ${SYSTEMD_DIR}
+chmod 644 ${SYSTEMD_DIR}/ndppd.service
+chown root:root ${SYSTEMD_DIR}/ndppd.service

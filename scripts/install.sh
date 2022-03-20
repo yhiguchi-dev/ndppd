@@ -8,6 +8,10 @@ SBIN_DIR=/usr/sbin
 SYSTEMD_DIR=/etc/systemd/system
 CONFIG_DIR=/etc
 
+TARGET_ADDRESS=${TARGET_ADDRESS}
+
+sed -e "s/\${TARGET_ADDRESS}/${TARGET_ADDRESS}/" ndppd.conf.template > ndppd.conf
+
 mkdir -p ${SBIN_DIR} ${SYSTEMD_DIR}
 cp ndppd ${SBIN_DIR}
 chmod 755 ${SBIN_DIR}/ndppd

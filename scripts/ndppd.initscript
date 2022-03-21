@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/sbin/ndppd -d -p /var/run/ndppd/ndppd.pid

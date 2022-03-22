@@ -16,7 +16,7 @@ mkdir -p ${SBIN_DIR} ${SYSTEMD_DIR} ${CONFIG_DIR}
 cp ndppd ${SBIN_DIR}
 chmod 755 ${SBIN_DIR}/ndppd
 chown root:root ${SBIN_DIR}/ndppd
-cp ndppd.service ${SYSTEMD_DIR}/ndppd
+cp ndppd.service ${SYSTEMD_DIR}
 chmod 644 ${SYSTEMD_DIR}/ndppd.service
 chown root:root ${SYSTEMD_DIR}/ndppd.service
 cp ndppd.conf ${CONFIG_DIR}

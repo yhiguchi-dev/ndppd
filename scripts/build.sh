@@ -8,5 +8,5 @@ mkdir -p build
 
 cp ndppd build/
 cp ndppd.conf.template build/
-cp scripts/ndppd.initscript build/
+cp ndppd.service build/
 cp scripts/install.sh build/

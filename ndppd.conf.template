@@ -1,14 +1,22 @@
 proxy eth0 {
    router no
+   timeout 500
    autowire yes
-   rule ${TARGET_ADDRESS} {
+   keepalive yes
+   retries 3
+   ttl 30000
+   rule ::/0 {
       iface switch0
    }
 }
 proxy switch0 {
    router yes
+   timeout 500
    autowire yes
-   rule ${TARGET_ADDRESS} {
+   keepalive yes
+   retries 3
+   ttl 30000
+   rule ::/0 {
       auto
    }
 }

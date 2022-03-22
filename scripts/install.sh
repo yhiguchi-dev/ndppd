@@ -7,12 +7,11 @@ cd $(dirname $0)
 SBIN_DIR=/usr/sbin
 SYSTEMD_DIR=/etc/systemd/system
 CONFIG_DIR=/etc
+PID_DIR=/var/run/ndppd
 
-TARGET_ADDRESS=${TARGET_ADDRESS}
+cp ndppd.conf.template ndppd.conf
 
-sed -e "s/\${TARGET_ADDRESS}/${TARGET_ADDRESS}/" ndppd.conf.template > ndppd.conf
-
-mkdir -p ${SBIN_DIR} ${SYSTEMD_DIR} ${CONFIG_DIR}
+mkdir -p ${SBIN_DIR} ${SYSTEMD_DIR} ${CONFIG_DIR} ${PID_DIR}
 cp ndppd ${SBIN_DIR}
 chmod 755 ${SBIN_DIR}/ndppd
 chown root:root ${SBIN_DIR}/ndppd
